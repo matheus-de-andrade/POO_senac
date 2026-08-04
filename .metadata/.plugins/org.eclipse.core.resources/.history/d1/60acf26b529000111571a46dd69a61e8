@@ -1,0 +1,66 @@
+package poo_senac;
+
+public class Primeiro_teste {
+
+	public static void main(String[] args) {
+		professor professor1 = new professor("Matheus","Artes", 27);
+		aluno aluno1 = new aluno("matheus", 20, 2006);
+		disciplina diciplina1 = new disciplina("Artes", 30);
+		
+		professor.mostrardados();
+		aluno.mostrardados();
+		disciplina.mostrardados();
+
+	}
+	
+	public class aluno{
+		
+		String nome;
+		int idade;
+		int anoNascimento;
+		
+		public aluno(String nome, int idade, int anoNascimento) {
+			this.nome = nome;
+			this.idade = idade;
+			this.anoNascimento = anoNascimento;
+		}
+		
+		void mostrardados(){
+			System.out.print("-- Informações(aluno) --\n\nNome: " + nome + "\nidade: " + idade + "\nAno de nascimento: " + anoNascimento);
+		}
+}
+	
+	public class professor{
+		
+		String nome;
+		String materia;
+		int idade;
+		
+		public professor(String nome, String materia, int idade) {
+			this.nome = nome;
+			this.materia = materia;
+			this.idade = idade;
+		}
+		
+		void mostrardados() {
+			System.out.print("-- Informações(professor) --\n\nNome: " + nome + "\nidade: " + idade + "\nMatéria: " + materia);
+		}
+	}
+	
+	public class disciplina{
+		
+		String diciplina;
+		int quantAlunos;
+		
+		public disciplina(String diciplina, int quantAlunos) {
+			this.diciplina = diciplina;
+			this.quantAlunos = quantAlunos;
+		}
+		
+		void mostrardados() {
+			System.out.print("-- Informações(Diciplina) --\n\nDiciplina: " + diciplina + "\nQuantidade de alunos: " + quantAlunos);
+		}
+	}
+
+
+}
