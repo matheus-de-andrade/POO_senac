@@ -6,22 +6,22 @@ public class Produto{
     private double preco;
 
     void mostrarProduto(){
-        System.out.print(this.getNome() + " - " + this.getPreco());
+        System.out.print(this.getNome() + " - R$" + this.getPreco());
     }
 
     String getNome(){
-        return nome
+        return nome;
     }
 
     void setNome(String nome){
-        this.nome = nome
+        this.nome = nome;
     }
 
     double getPreco(){
-        return preco
+        return preco;
     }
 
     void setpreco(double preco){
-        this.preco = preco
+        this.preco = preco;
     }
 }

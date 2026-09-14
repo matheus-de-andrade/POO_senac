@@ -2,27 +2,27 @@ package testes;
 
 public class Pessoa {
 
-    private String nome;
-    private int idade;
+    protected String nome;
+    protected int idade;
 
     void apresentar(){
-        System.out.print("Olá, meu nome é " + this.getNome() + " e tenho " + this.getIdade + " anos.");
+        System.out.print("Olá, meu nome é " + this.getNome() + " e tenho " + this.getIdade() + " anos.");
     }
 
     String getNome(){
-        return nome
+        return nome;
     }
 
     void setNome(String nome){
-        this.nome = nome
+        this.nome = nome;
     }
 
     int getIdade(){
-        return idade
+        return idade;
     }
 
     void setIdade(int idade){
-        this.idade = idade
+        this.idade = idade;
     }
 
 }
