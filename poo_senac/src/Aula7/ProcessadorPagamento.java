@@ -10,10 +10,11 @@ public class ProcessadorPagamento {
 		 + pagamento.getIdTransacao());
 		 return;
 		 }
+		 
 		 double valorFinal = pagamento.calcularTaxa();
 		 System.out.printf("Sucesso! Valor original: R$%.2f | Total com taxas: R$%.2f%n", 
 		 pagamento.getValorOriginal(), valorFinal);
-		 System.out.println("----------------------------------------------------------------");
+		 System.out.println("|___________________________________________________________|");
 	}
 
 }
