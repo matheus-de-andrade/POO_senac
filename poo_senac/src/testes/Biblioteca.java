@@ -19,7 +19,6 @@ public class Biblioteca {
 		}
 	}
 	
-	
 	public String getNome() {
 		return nome;
 	}

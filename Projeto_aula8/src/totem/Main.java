@@ -1,36 +1,91 @@
 package totem;
 
 import java.util.Scanner;
-import java.time.LocalDateTime;
 
 public class Main {
 
-	public static void main(String[] args) {
-		Scanner tc = new Scanner(System.in);
-		 int opcao = 0;
-		 int senha = 1;
-		 do {
-			 System.out.print("==================================================\r\n"
-			 		+ "   SISTEMA DE TOTEM DE ATENDIMENTO - CLÍNICA      \r\n"
-			 		+ "==================================================\r\n"
-			 		+ "1 - Emitir Senha Comum\r\n"
-			 		+ "2 - Emitir Senha Preferencial\r\n"
-			 		+ "3 - Chamar Próxima Senha\r\n"
-			 		+ "4 - Listar Senhas Pendentes\r\n"
-			 		+ "5 - Relatório de Senhas Atendidas\r\n"
-			 		+ "0 - Encerrar Sistema\r\n"
-			 		+ "Escolha uma opção: ");
-			 opcao = tc.nextInt();
-			 switch(opcao) {
-			 case 1: {
-				 break;
-			 }
-			 case 2:{
-				 break;
-			 }
-			 }
-		 }while(opcao == 0);
+    public static void main(String[] args) {
 
-	}
+        Scanner sc = new Scanner(System.in);
 
+        TotemAtendimento totem =
+                new TotemAtendimento();
+
+        int opcao;
+
+        do {
+
+            System.out.println("\n====================");
+            System.out.println("  TOTEM CLÍNICO");
+            System.out.println("====================");
+            System.out.println("1 - Emitir Senha Comum");
+            System.out.println("2 - Emitir Senha Preferencial");
+            System.out.println("3 - Chamar Próxima Senha");
+            System.out.println("4 - Listar Senhas Pendentes");
+            System.out.println("0 - Sair");
+
+            System.out.print("\nEscolha: ");
+            opcao = sc.nextInt();
+            sc.nextLine();
+
+            switch (opcao) {
+
+            case 1:
+
+                Senha comum =
+                        totem.emitirSenhaComum();
+
+                System.out.println(
+                        "\nSenha emitida: "
+                                + comum.formatarSenha());
+
+                break;
+
+            case 2:
+
+                System.out.print(
+                        "Motivo da preferência: ");
+
+                String motivo =
+                        sc.nextLine();
+
+                Senha pref =
+                        totem.emitirSenhaPreferencial(
+                                motivo);
+
+                System.out.println(
+                        "\nSenha emitida: "
+                                + pref.formatarSenha());
+
+                break;
+
+            case 3:
+
+                totem.chamarProximaSenha();
+
+                break;
+
+            case 4:
+
+                totem.listarTodasSenhas();
+
+                break;
+
+            case 0:
+
+                System.out.println(
+                        "\nSistema encerrado.");
+
+                break;
+
+            default:
+
+                System.out.println(
+                        "\nOpção inválida.");
+            }
+
+        } while (opcao != 0);
+
+        sc.close();
+    }
 }
