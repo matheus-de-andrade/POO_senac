@@ -6,6 +6,8 @@ import java.util.ArrayList;
 public class TotemAtendimento {
 
     private ArrayList<Senha> listaSenhas;
+    private int quantidadePendentes = listaSenhas.size();
+    private int quantidadeAtendidas = 0;
     private int contador;
 
     public TotemAtendimento() {
@@ -14,13 +16,38 @@ public class TotemAtendimento {
         contador = 1;
     }
 
-    public Senha emitirSenhaComum() {
+    public int getQuantidadePendentes() {
+		return quantidadePendentes;
+	}
+
+
+
+	public void setQuantidadePendentes(int quantidadePendentes) {
+		this.quantidadePendentes = quantidadePendentes;
+	}
+
+
+
+	public int getQuantidadeAtendidas() {
+		return quantidadeAtendidas;
+	}
+
+
+
+	public void setQuantidadeAtendidas(int quantidadeAtendidas) {
+		this.quantidadeAtendidas = quantidadeAtendidas;
+	}
+
+
+
+	public Senha emitirSenhaComum() {
 
         Senha senha = new SenhaComum(
                 contador++,
                 LocalDateTime.now());
 
         listaSenhas.add(senha);
+        this.setQuantidadePendentes(quantidadePendentes + 1);
 
         return senha;
     }
@@ -34,6 +61,7 @@ public class TotemAtendimento {
                 motivo);
 
         listaSenhas.add(senha);
+        this.setQuantidadePendentes(quantidadePendentes + 1);
 
         return senha;
     }
@@ -70,16 +98,9 @@ public class TotemAtendimento {
 
         for (int i = 0; i < listaSenhas.size(); i++) {
 
-            if (listaSenhas.get(i)
-                    instanceof SenhaPreferencial) {
-
-                Senha senha =
-                        listaSenhas.remove(i);
-
-                System.out.println(
-                        "\n>>> CHAMANDO: "
-                                + senha.formatarSenha());
-
+            if (listaSenhas.get(i) instanceof SenhaPreferencial) {
+                Senha senha = listaSenhas.remove(i);
+                System.out.println("\n>>> CHAMANDO: " + senha.formatarSenha());
                 return;
             }
         }
@@ -89,5 +110,14 @@ public class TotemAtendimento {
         System.out.println(
                 "\n>>> CHAMANDO: "
                         + senha.formatarSenha());
+    }
+    
+    public void atendimentos() {
+    	System.out.println("Atendimentos realizados: " + quantidadeAtendidas);
+    	System.out.println("Atendimentos pendentes: " + quantidadePendentes);
+    	for(int i = 0; i < listaSenhas.size(); i++) {
+    		
+    	}
+
     }
 }

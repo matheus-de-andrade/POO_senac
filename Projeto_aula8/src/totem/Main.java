@@ -22,6 +22,7 @@ public class Main {
             System.out.println("2 - Emitir Senha Preferencial");
             System.out.println("3 - Chamar Próxima Senha");
             System.out.println("4 - Listar Senhas Pendentes");
+            System.out.println("5 - Listar Senhas atendidas");
             System.out.println("0 - Sair");
 
             System.out.print("\nEscolha: ");
@@ -70,6 +71,11 @@ public class Main {
                 totem.listarTodasSenhas();
 
                 break;
+                
+            case 5:
+            	
+            	
+            	break;
 
             case 0:
 
